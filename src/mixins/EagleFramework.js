@@ -79,32 +79,27 @@ export const EagleFramework = {
           }
           let fullKey = 'employee_name'
           let columnDict = dictData.dictItem[fullKey];
-          console.log(columnDict, '...columnDict...')
           // if (!columnDict || !Array.isArray(columnDict)) {
           //   continue;
           // }
-          for (var dictKey in columnDict) {
-            console.log(columnDict[dictKey], '...columnDict...2');
-          }
-          columns[cKey].render = function (text) {
-            console.log(text,'...text..')
+
+          // columns[cKey].render: (text) => {
+          //   console.log(text, '...text..')
             for (var dictKey in columnDict) {
-              if (
-                dd + "" === columnDict[dictKey].value + ""
-              ) {
-                console.log(columnDict[dictKey].text, 'itemText')
-                return columnDict[dictKey].text;
-              }
+              console.log(columnDict[dictKey].value,'...value...')
+              // if (
+              //   dd + "" === columnDict[dictKey].value + ""
+              // ) {
+              //   console.log(columnDict[dictKey].text, 'itemText')
+              //   return columnDict[dictKey].text;
+              // }
             }
 
-            // for (var dictKey in columnDict) {
-            //   if (
-            //     text + "" === columnDict[dictKey].itemValue + ""
-            //   ) {
-            //     return columnDict[dictKey].itemText;
-            //   }
-            // }
-          };
+          // };
+          columns[cKey].render = (h, data) => {
+            alert(data)
+            return data.props.render(h,'user...')
+          }
         }
       }
 

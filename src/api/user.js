@@ -22,3 +22,29 @@ export function logout() {
     method: 'post'
   })
 }
+
+
+/***
+ * 智联结算登录
+ */
+// 登录
+export function loginReq(data) {
+  return request({
+    url: '/lion-oauth2-authorization-serve/oauth/token',
+    data,
+    method: 'post',
+    bfLoading: false,
+    isParams: true,
+    isAlertErrorMsg: true
+  })
+}
+
+// 用户信息
+export function getInfoReq() {
+  return request({
+    url: `${userPath}/current/user/details`,
+    method: 'get',
+    isParams: true,
+    isAlertErrorMsg: true
+  })
+}

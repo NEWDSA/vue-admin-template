@@ -37,13 +37,20 @@ module.exports = {
       errors: true
     },
     proxy: {
-      "/api/": {
+      "/apis/": {
         target:
           "http://127.0.0.1:4523/m1/1967616-0-default/",
         ws: true,
         /** 是否允许跨域 */
         changeOrigin: true
       },
+      "/api/": {
+        target:
+          "http://192.168.8.221/",
+        ws: true,
+        /** 是否允许跨域 */
+        changeOrigin: true
+      }
     },
     after: require('./mock/mock-server.js'),
 

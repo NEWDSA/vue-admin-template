@@ -42,7 +42,6 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
     path: '/',
     component: Layout,
@@ -54,7 +53,24 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  {
+    path: '/ProjectMange',
+    component: Layout,
+    redirect: '/ProjectMange/ProjectInfo',
+    name: 'Example',
+    meta: { title: '项目管理', icon: 'el-icon-s-help' },
+    children: [{
+      path: 'ProjectInfo',
+      name: 'ProjectInfo',
+      component: () => import('@/views/projectMange/projectInfo/index.vue'),
+      meta: { title: '项目信息', icon: 'table' }
+    }, {
+      path: 'BidSection',
+      name: 'BidSection',
+      component: () => import('@/views/projectMange/BidSection/index.vue'),
+      meta: { title: '标段信息', icon: 'tree' }
+    }]
+  },
   {
     path: '/example',
     component: Layout,
