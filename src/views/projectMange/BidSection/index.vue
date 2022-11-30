@@ -32,12 +32,13 @@
         </template>
       </template>
     </zj-table>
+    <AddContract  :dialog-visible="dialogVisible"/>
   </div>
 </template>
 
 <script>
 import zjTable from '@/components/vue-element-table/src/components/zj-table'
-// import AddContract from '../components/AddContract'
+import AddContract from '../components/AddContract'
 import { getProject } from '@/api/projectMange'
 import { async } from 'q';
 export default {
@@ -135,7 +136,7 @@ export default {
   },
   components: {
     zjTable,
-    // AddContract
+    AddContract
   },
   created() {
     let params = {
