@@ -32,7 +32,7 @@
         </template>
       </template>
     </zj-table>
-    <AddContract  :dialog-visible="dialogVisible"/>
+    <AddContract  v-if="dialogVisible" :flag="flag" :dialogTitle="dialogTitle" @submit="way" :dialog-visible="dialogVisible"/>
   </div>
 </template>
 
@@ -55,6 +55,7 @@ export default {
       data: [],
       total: 0,
       activeName: '99',
+      flag:"",
       tabList: [
         {
           code: '99',
@@ -162,6 +163,7 @@ export default {
     $_handleAdd() {
       this.dialogVisible = true;
       this.dialogTitle = '新建标段'
+      this.flag = 'add';
     },
     $_handlePageChange(val) {
       console.log(val, '...val...')
@@ -169,7 +171,7 @@ export default {
       this.getList()
     },
     handleClick(val) {
-      this.pageNumber = val;
+      // this.pageNumber = Number(val.index);
       this.getList()
     },
     getList() {
@@ -202,6 +204,10 @@ export default {
     },
     $_hadleChange(){
 
+    },
+    way(val){
+      this.dialogVisible=val;
+     console.log(val,'...val...')
     }
   },
 };
